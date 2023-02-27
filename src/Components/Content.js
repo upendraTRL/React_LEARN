@@ -1,9 +1,12 @@
+import { useState } from "react";
+
 const Content = () => {
+    const [name, setName] = useState('React');
 
     const handleTech = () => {
         const names = ['React', 'Node', 'Flutter']
         const int = Math.floor(Math.random() * 3);
-        return names[int];
+        setName(names[int]);
     }
 
     const handleClick = () => {
@@ -20,9 +23,9 @@ const Content = () => {
     return (
         <main>
             <p onDoubleClick={handleClick}>
-                Hello {handleTech()} !
+                Hello {name} !
             </p>
-            <button onClick={handleClick}>Click It!</button>
+            <button onClick={handleTech}>Tech!</button>
             <button onClick={() => handleClick2("Upendra")}>Click It!</button>
             <button onClick={(e) => handleClick3(e)}>Click It!</button>
         </main>
